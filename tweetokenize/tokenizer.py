@@ -263,7 +263,7 @@ class Tokenizer(object):
             message = self.quotes_re.sub(" ", message)
         message = self._replacetokens(self.tokenize_re.findall(message))
         if self.ignorestopwords:
-            message = [word for word in message if word not in self._stopwords]
+            message = [word for word in message if word.lower() not in self._stopwords]
         return message
 
     def emoticons(self, iterable=None, filename=None):
